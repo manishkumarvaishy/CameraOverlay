@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Overlay Camera Template for HTML, CSS, JS and WebRTC">
+    <meta name="keywords" content="HTML,CSS,JavaScript, WebRTC, Camera">
+    <meta name="author" content="Manish Kumar">
+    <title>Camera Overlay</title>
+    <link rel="stylesheet" href="main.css" type="text/css" media="all">
+    <script src="capture.js"></script>
+</head>
+
+<body>
+
+
+    <div class="contentarea">
+
+        <div id="controller">
+            <button name="sedan" id="sedanButton">Car - Side View</button>
+            <button name="sedan" id="sedanFrontButton">Car - Front View</button>
+            <!-- <button name="sedan">Sedan - Front View</button>
+        <button name="sedan">Sedan - Rear View</button> -->
+
+            <button name="van" id="vanButton">Van - Side View</button>
+            <!-- <button name="sedan">Sedan - Side View</button>
+        <button name="sedan">Sedan - Side View</button> -->
+        </div>
+        <div class="camera">
+            <video id="video" autoplay playsinline>Video stream not available.</video>
+            <div id="sedan_overlay"></div>
+            <div id="van_overlay"></div>
+            <div id="car_front_overlay"></div>
+            <img id="photo" alt="The screen capture will appear in this box.">
+        </div>
+        <div id="gui_controls">
+            <button id="startbutton" name="take Photo" type="button"></button>
+            <button id="backbutton" name="Go back" type="button" aria-pressed="false"></button>
+        </div>
+        <canvas id="canvas"></canvas>
+        <div class="output">
+            <img id="photo" alt="The screen capture will appear in this box.">
+            <!-- <a id="picDown" href="" download="abc.png">Download</a> -->
+        </div>
+
+    </div>
+</body>
+
+</html>

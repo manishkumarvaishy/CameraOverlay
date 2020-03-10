@@ -1,0 +1,189 @@
+/* #video {
+    border: 1px solid black;
+    box-shadow: 2px 2px 3px black;
+    width:320px;
+    height:240px;
+  } */
+
+#video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+#photo {
+    border: 1px solid black;
+    box-shadow: 2px 2px 3px black;
+    width: 100%;
+    /* height: 240px; */
+}
+
+#canvas {
+    display: none;
+}
+
+#controller {
+    display: grid;
+    padding: 100px;
+}
+
+.camera {
+    /* width: 340px; */
+    display: block;
+}
+
+#photo,
+#backbutton {
+    /* width: 340px; */
+    display: none;
+}
+
+#gui_controls {
+    position: fixed;
+    background-color: #111;
+    /*rgba(255, 0, 0, 0.5);*/
+    z-index: 2000;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#startbutton {
+    left: calc(50% - 40px);
+    top: calc(50% - 40px);
+    width: 70px;
+    height: 70px;
+    background-image: url('img/ic_photo_camera_white_48px.svg');
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-size: contain;
+}
+
+#backbutton {
+    left: calc(50% - 40px);
+    top: calc(50% - 40px);
+    width: 70px;
+    height: 70px;
+    background-image: url('img/ic_fullscreen_white_48px.svg');
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-size: contain;
+}
+
+#startbutton:active,
+#backbutton:active {
+    background-color: #fff;
+}
+
+#sedan_overlay {
+    position: fixed;
+    /* display: none; */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1000;
+    background-color: transparent;
+    background-image: url(./img/sedan.png);
+}
+
+#van_overlay {
+    position: fixed;
+    /* display: none; */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1000;
+    background-color: transparent;
+    background-image: url(./img/car.png);
+}
+
+#car_front_overlay {
+    position: fixed;
+    /* display: none; */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1000;
+    background-color: transparent;
+    background-image: url(./img/car-front1.png);
+}
+
+
+/* #startbutton {
+    display:block;
+    position:relative;
+    margin-left:auto;
+    margin-right:auto;
+    bottom:32px;
+    background-color: rgba(0, 150, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0px 0px 1px 2px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    font-family: "Lucida Grande", "Arial", sans-serif;
+    color: rgba(255, 255, 255, 1.0);
+  } */
+
+.contentarea {
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* display: none; */
+}
+
+@media screen and (orientation: portrait) {
+    /* portrait-specific styles */
+    /* video_container (video) doesn't respect height... 
+         so we will fill it in completely in portrait mode
+      */
+    .contentarea {
+        width: 100%;
+        height: 90%;
+    }
+    #gui_controls {
+        width: 100%;
+        height: 10%;
+        left: 0;
+    }
+    #video_overlay {
+        width: 100%;
+        height: 90%;
+    }
+}
+
+@media screen and (orientation: landscape) {
+    .contentarea {
+        width: 90%;
+        height: 100%;
+    }
+    .contentarea.left {
+        left: 10%;
+    }
+    /* we default to right */
+    #gui_controls {
+        width: 10%;
+        height: 100%;
+        right: 0;
+    }
+    /* for the lefties */
+    #gui_controls.left {
+        left: 0;
+    }
+    #video_overlay {
+        width: 90%;
+        height: 100%;
+    }
+}
